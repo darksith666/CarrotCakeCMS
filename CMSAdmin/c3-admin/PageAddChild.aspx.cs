@@ -47,8 +47,7 @@ namespace Carrotware.CMS.UI.Admin.c3_admin {
 
 
 		protected void btnSave_Click(object sender, EventArgs e) {
-			pageContents = new ContentPage(SiteData.CurrentSiteID, ContentPageType.PageType.ContentEntry);
-
+			pageContents = new ContentPage();
 			DateTime dtSite = CalcNearestFiveMinTime(SiteData.CurrentSite.Now);
 
 			Guid? parentContentID = null;
@@ -73,6 +72,10 @@ namespace Carrotware.CMS.UI.Admin.c3_admin {
 			pageContents.NavMenuText = txtNav.Text;
 			pageContents.PageHead = txtHead.Text;
 			pageContents.FileName = txtFileName.Text;
+
+			pageContents.RightPageText = "<p>&nbsp;</p>";
+			pageContents.LeftPageText = "<p>&nbsp;</p>";
+			pageContents.PageText = "<p>&nbsp;</p>";
 
 			pageContents.MetaDescription = txtDescription.Text;
 			pageContents.MetaKeyword = txtKey.Text;

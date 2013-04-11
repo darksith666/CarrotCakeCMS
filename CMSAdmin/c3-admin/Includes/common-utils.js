@@ -115,14 +115,14 @@ function cmsAjaxGeneralCallback(data, status) {
 	}
 }
 
-function cmsAlertModalHeightWidth(request, h, w) {
+function cmsAlertModal(request) {
 	$("#divCMSModalMsg").html('');
 
 	$("#divCMSModalMsg").html(request);
 
 	$("#divCMSModal").dialog({
-		height: h,
-		width: w,
+		height: 400,
+		width: 550,
 		modal: true,
 		buttons: {
 			"OK": function () {
@@ -132,30 +132,6 @@ function cmsAlertModalHeightWidth(request, h, w) {
 	});
 }
 
-function cmsAlertModal(request) {
-	cmsAlertModalHeightWidth(request, 400, 550);
-}
-function cmsAlertModalSmall(request) {
-	cmsAlertModalHeightWidth(request, 250, 400);
-}
-function cmsAlertModalLarge(request) {
-	cmsAlertModalHeightWidth(request, 550, 700);
-}
-
-function cmsLoadPrettyValidationPopup(validSummaryFld) {
-	if (!Page_IsValid) {
-		var txt = $('#' + validSummaryFld).html();
-		cmsAlertModalSmall(txt);
-	}
-}
-
-function cmsLoadPrettyValidation(validSummary) {
-	$(".cmsPrettyValidationButton").each(function (i) {
-		$(this).click(function () {
-			cmsLoadPrettyValidationPopup(validSummary);
-		});
-	});
-}
 
 function ProcessKeyPress(e) {
 	var obj = window.event ? event : e;

@@ -83,23 +83,6 @@
 				</td>
 			</tr>
 		</table>
-		<table style="width: 99%;">
-			<tr>
-				<td>
-					<asp:CheckBox ID="chkAuthors" runat="server" Checked="true" />
-					Uncheck this box if you do not want user accounts to be created. Accounts will only be created if the username and email address have not already been
-					used in this system. Password will be set according to normal reset values, and the user will have to request a new password by email to login. If this
-					is unchecked and a matching account exists, the discovered user will be recorded as the content editor. If the user account does not exist, the current
-					user will be recorded as the content editor.
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<asp:CheckBox ID="chkMapAuthor" runat="server" Checked="true" />
-					Uncheck this box if you want all imported content to be recorded under the curent user. This option trumps the account creation checkbox.
-				</td>
-			</tr>
-		</table>
 	</fieldset>
 	<fieldset style="width: 90%;">
 		<legend>
@@ -109,7 +92,7 @@
 			</label>
 		</legend>
 		<p>
-			<asp:Literal ID="lblComments" runat="server" Text="Label" />
+			<asp:Label ID="lblComments" runat="server" Text="Label" />
 			records
 		</p>
 	</fieldset>
@@ -126,15 +109,18 @@
 					template:
 				</td>
 				<td>
-					<asp:DropDownList DataTextField="Caption" DataValueField="TemplatePath" ID="ddlTemplatePage" runat="server" />
+					<asp:DropDownList DataTextField="Caption" DataValueField="TemplatePath" ID="ddlTemplatePage" runat="server">
+					</asp:DropDownList>
+				</td>
+				<td>
 				</td>
 			</tr>
 		</table>
 		<p>
-			<asp:Literal ID="lblPages" runat="server" Text="Label" />
+			<asp:Label ID="lblPages" runat="server" Text="Label" />
 			records
 		</p>
-		<div class="SortableGrid">
+		<div id="SortableGrid">
 			<carrot:CarrotGridView CssClass="datatable" DefaultSort="NavOrder ASC" ID="gvPages" runat="server" AutoGenerateColumns="false" HeaderStyle-CssClass="tablehead"
 				AlternatingRowStyle-CssClass="rowalt" RowStyle-CssClass="rowregular">
 				<EmptyDataTemplate>
@@ -166,15 +152,18 @@
 					template:
 				</td>
 				<td>
-					<asp:DropDownList DataTextField="Caption" DataValueField="TemplatePath" ID="ddlTemplatePost" runat="server" />
+					<asp:DropDownList DataTextField="Caption" DataValueField="TemplatePath" ID="ddlTemplatePost" runat="server">
+					</asp:DropDownList>
+				</td>
+				<td>
 				</td>
 			</tr>
 		</table>
 		<p>
-			<asp:Literal ID="lblPosts" runat="server" Text="Label" />
+			<asp:Label ID="lblPosts" runat="server" Text="Label" />
 			records
 		</p>
-		<div class="SortableGrid">
+		<div id="SortableGrid">
 			<carrot:CarrotGridView CssClass="datatable" DefaultSort="CreateDate DESC" ID="gvPosts" runat="server" AutoGenerateColumns="false" HeaderStyle-CssClass="tablehead"
 				AlternatingRowStyle-CssClass="rowalt" RowStyle-CssClass="rowregular">
 				<EmptyDataTemplate>

@@ -38,12 +38,12 @@
 		</tr>
 		<tr>
 			<td class="tablecaption">
-				titlebar:
+				title bar:
 			</td>
 			<td>
 				<asp:TextBox ValidationGroup="inputForm" onkeypress="return ProcessKeyPress(event)" ID="txtTitle" runat="server" Columns="45" MaxLength="200" />
-				<asp:RequiredFieldValidator ValidationGroup="inputForm" ControlToValidate="txtTitle" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Titlebar is required"
-					ToolTip="Titlebar is required" Display="Dynamic" Text="**" />
+				<asp:RequiredFieldValidator ValidationGroup="inputForm" ControlToValidate="txtTitle" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required"
+					Display="Dynamic" />
 			</td>
 		</tr>
 		<tr>
@@ -52,8 +52,8 @@
 			</td>
 			<td>
 				<asp:TextBox ValidationGroup="inputForm" onkeypress="return ProcessKeyPress(event)" ID="txtNav" runat="server" Columns="45" MaxLength="200" />
-				<asp:RequiredFieldValidator ValidationGroup="inputForm" ControlToValidate="txtNav" ID="RequiredFieldValidator4" runat="server" ErrorMessage="Navigation text is required"
-					ToolTip="Navigation text is required" Display="Dynamic" Text="**" />
+				<asp:RequiredFieldValidator ValidationGroup="inputForm" ControlToValidate="txtNav" ID="RequiredFieldValidator4" runat="server" ErrorMessage="Required"
+					Display="Dynamic" />
 			</td>
 		</tr>
 		<tr>
@@ -111,26 +111,21 @@
 			</td>
 		</tr>
 	</table>
-	<div style="display: none;">
-		<asp:ValidationSummary ID="formValidationSummary" runat="server" ShowSummary="true" ValidationGroup="inputForm" />
-	</div>
-	<asp:Button ValidationGroup="inputForm" ID="btnSaveButton" runat="server" OnClientClick="SubmitPage()" Text="Apply" />
+	<asp:Button ValidationGroup="inputForm" ID="btnSaveButton" runat="server" OnClientClick="SubmitPage()" Text="Apply" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<%-- <input type="button" id="btnCancel" value="Cancel" onclick="location.href='./PageIndex.aspx';" />--%>
 	<br />
 	<div style="display: none;">
 		<asp:Button ValidationGroup="inputForm" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Apply" />
 	</div>
 	<script type="text/javascript">
-		function SubmitPage() {
-			cmsIsPageValid();
-			setTimeout("ClickSaveBtn();", 800);
-		}
+		var saving = 0;
 
-		function ClickSaveBtn() {
-			if (cmsIsPageValid()) {
-				$('#<%=btnSave.ClientID %>').click();
-			}
-			cmsLoadPrettyValidationPopup('<%= formValidationSummary.ClientID %>');
-			return true;
+		function SubmitPage() {
+			saving = 1;
+			setTimeout("ClickBtn();", 500);
+		}
+		function ClickBtn() {
+			$('#<%=btnSave.ClientID %>').click();
 		}
 	</script>
 </asp:Content>

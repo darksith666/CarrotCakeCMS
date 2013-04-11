@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
@@ -107,10 +106,8 @@ namespace Carrotware.CMS.Core {
 			}
 
 			mailMessage.Priority = MailPriority.Normal;
-			mailMessage.Headers.Add("X-Originating-IP", context.Request.ServerVariables["REMOTE_ADDR"].ToString());
 			mailMessage.Headers.Add("X-Application", "CarrotCake CMS " + CurrentDLLVersion);
-			mailMessage.Headers.Add("User-Agent", "CarrotCake CMS " + CurrentDLLVersion);
-			mailMessage.Headers.Add("Message-ID", "<" + Guid.NewGuid().ToString().ToLower() + "@" + mailSettings.MailDomainName + ">");
+			mailMessage.Headers.Add("X-Originating-IP", context.Request.ServerVariables["REMOTE_ADDR"].ToString());
 
 			SmtpClient client = new SmtpClient();
 			mailMessage.From = new MailAddress(mailSettings.ReturnAddress);

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using Carrotware.CMS.Core;
 using Carrotware.CMS.UI.Base;
@@ -65,12 +64,6 @@ namespace Carrotware.CMS.UI.Admin {
 			DateTime dateOut = dateIn.AddMinutes(0 - dateIn.Minute).AddMinutes(iMin);
 
 			return dateOut;
-		}
-
-		public void SetBlankText(ITextControl textControl) {
-			if (string.IsNullOrEmpty(textControl.Text)) {
-				textControl.Text = ContentPage.PageContentEmpty;
-			}
 		}
 
 		public void PreselectCheckboxRepeater(Repeater repeater, List<IContentMetaInfo> lst) {

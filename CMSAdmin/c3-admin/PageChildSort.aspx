@@ -88,9 +88,10 @@
 				<ul id="sortable">
 			</HeaderTemplate>
 			<ItemTemplate>
-				<li class="ui-state-default" id='<%# Eval("Root_ContentID")%>'>
+				<li class="ui-state-default" id='<%# Eval("Root_ContentID")%>'>Nav:
 					<%# Eval("NavMenuText")%>
-					&nbsp;&nbsp;&nbsp; [<%# Eval("FileName")%>]</li>
+					&nbsp;&nbsp;&nbsp; File:
+					<%# Eval("FileName")%></li>
 			</ItemTemplate>
 			<FooterTemplate>
 				</ul></FooterTemplate>
